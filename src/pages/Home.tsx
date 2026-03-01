@@ -44,7 +44,7 @@ function StatCard({ icon: Icon, value, label, index }: { icon: typeof Users; val
 }
 
 export default function Home() {
-  const upcomingEvents = events.filter(e => e.status === 'upcoming').slice(0, 3);
+  const upcomingEvents = [...events].reverse().slice(0, 3);
   const featuredLeaders = leaders.slice(0, 3);
   const aboutRef = useRef(null);
   const inViewAbout = useInView(aboutRef, { once: true });
@@ -154,9 +154,9 @@ export default function Home() {
       <section className="section events-preview">
         <div className="container">
           <div className="section-header">
-            <span className="section-tag">Lịch sự kiện</span>
-            <h2 className="section-title">Sự Kiện <span>Sắp Tới</span></h2>
-            <p className="section-desc">Hãy tham gia cùng chúng tôi trong những hoạt động ý nghĩa sắp diễn ra</p>
+            <span className="section-tag">Các chương trình</span>
+            <h2 className="section-title">Sự Kiện <span>Nổi Bật</span></h2>
+            <p className="section-desc">Những chương trình tình nguyện tiêu biểu mang dấu ấn của HTi's Volunteer Club</p>
           </div>
           <div className="events-preview__grid">
             {upcomingEvents.map((ev, i) => (
