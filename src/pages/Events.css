@@ -1,0 +1,184 @@
+.events-filter {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  margin-bottom: 48px;
+  justify-content: center;
+}
+
+.events-filter__btn {
+  padding: 8px 20px;
+  border-radius: var(--radius-full);
+  border: 1.5px solid var(--gray-200);
+  background: var(--white);
+  color: var(--text-light);
+  font-size: 0.875rem;
+  font-weight: 600;
+  font-family: 'Be Vietnam Pro', sans-serif;
+  transition: var(--transition);
+  cursor: pointer;
+}
+
+.events-filter__btn:hover {
+  border-color: var(--navy);
+  color: var(--navy);
+}
+
+.events-filter__btn--active {
+  background: var(--gradient-navy);
+  border-color: transparent;
+  color: var(--white) !important;
+  box-shadow: var(--shadow-md);
+}
+
+.events-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 28px;
+}
+
+.event-card {
+  background: var(--white);
+  border: 1px solid var(--gray-200);
+  border-radius: var(--radius-lg);
+  overflow: hidden;
+  transition: var(--transition);
+  box-shadow: var(--shadow-sm);
+}
+
+.event-card:hover {
+  transform: translateY(-6px);
+  box-shadow: var(--shadow-lg);
+  border-color: rgba(201, 168, 76, 0.3);
+}
+
+.event-card__img-wrap {
+  position: relative;
+  aspect-ratio: 16/9;
+  overflow: hidden;
+}
+
+.event-card__img-wrap img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 0.5s ease;
+}
+
+.event-card:hover .event-card__img-wrap img {
+  transform: scale(1.05);
+}
+
+.event-card__badges {
+  position: absolute;
+  top: 12px;
+  left: 12px;
+  display: flex;
+  gap: 8px;
+  flex-wrap: wrap;
+}
+
+.event-card__cat {
+  padding: 4px 12px;
+  border-radius: var(--radius-full);
+  font-size: 0.72rem;
+  font-weight: 700;
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+}
+
+.event-card__cat--charity { background: var(--gradient-gold); color: var(--navy-dark); }
+.event-card__cat--education { background: linear-gradient(135deg, #3b82f6, #6366f1); color: white; }
+.event-card__cat--community { background: linear-gradient(135deg, #10b981, #34d399); color: white; }
+.event-card__cat--environment { background: linear-gradient(135deg, #22c55e, #86efac); color: var(--navy-dark); }
+
+.event-card__status {
+  display: flex;
+  align-items: center;
+  gap: 4px;
+  padding: 4px 10px;
+  border-radius: var(--radius-full);
+  font-size: 0.7rem;
+  font-weight: 700;
+}
+
+.event-card__status--upcoming {
+  background: rgba(59, 130, 246, 0.9);
+  color: white;
+}
+
+.event-card__status--done {
+  background: rgba(16, 185, 129, 0.9);
+  color: white;
+}
+
+.event-card__body {
+  padding: 24px;
+}
+
+.event-card__title {
+  font-size: 1.1rem;
+  font-weight: 700;
+  color: var(--navy-dark);
+  margin-bottom: 12px;
+}
+
+.event-card__meta {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 12px;
+  margin-bottom: 14px;
+}
+
+.event-card__meta span {
+  display: flex;
+  align-items: center;
+  gap: 5px;
+  font-size: 0.8rem;
+  color: var(--text-light);
+}
+
+.event-card__meta svg {
+  color: var(--gold-dark);
+}
+
+.event-card__desc {
+  font-size: 0.875rem;
+  color: var(--text-light);
+  line-height: 1.7;
+  margin-bottom: 16px;
+}
+
+.event-card__highlights {
+  list-style: none;
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+
+.event-card__highlights li {
+  display: flex;
+  align-items: center;
+  gap: 7px;
+  font-size: 0.82rem;
+  color: var(--gray-800);
+  font-weight: 500;
+}
+
+.event-card__highlights svg {
+  color: var(--gold-dark);
+  flex-shrink: 0;
+}
+
+.events-empty {
+  text-align: center;
+  padding: 80px 0;
+  color: var(--text-light);
+  font-size: 1rem;
+}
+
+@media (max-width: 768px) {
+  .events-grid {
+    grid-template-columns: 1fr;
+  }
+}
