@@ -1,6 +1,7 @@
 import { useEffect, useState } from 'react';
+import { Link } from 'react-router-dom';
 import { motion } from 'framer-motion';
-import { Calendar, MapPin, Users, CheckCircle, Clock } from 'lucide-react';
+import { Calendar, MapPin, Users, CheckCircle, Clock, ArrowRight } from 'lucide-react';
 import { events } from '../data/events';
 import type { Event } from '../data/events';
 import './Events.css';
@@ -61,6 +62,9 @@ function EventCard({ event, index }: { event: Event; index: number }) {
             ))}
           </ul>
         )}
+        <Link to={`/events/${event.id}`} className="event-card__detail-btn">
+          Xem chi tiết <ArrowRight size={14} />
+        </Link>
       </div>
     </motion.div>
   );

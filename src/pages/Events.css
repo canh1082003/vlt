@@ -170,6 +170,24 @@
   flex-shrink: 0;
 }
 
+.event-card__detail-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  margin-top: 16px;
+  color: var(--navy);
+  font-size: 0.875rem;
+  font-weight: 700;
+  border-bottom: 2px solid transparent;
+  transition: var(--transition);
+}
+
+.event-card__detail-btn:hover {
+  color: var(--gold-dark);
+  border-color: var(--gold-dark);
+  gap: 10px;
+}
+
 .events-empty {
   text-align: center;
   padding: 80px 0;
