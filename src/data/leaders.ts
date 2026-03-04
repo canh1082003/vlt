@@ -30,7 +30,7 @@ export const leaders: Leader[] = [
     name: "Ngô Thị Mai Quỳnh",
     role: "Chủ nhiệm CLB",
     description: "Sinh viên Khoa Du lịch - Đại học Duy Tân. Năng động, sáng tạo, luôn nhiệt tình đóng góp vào các chương trình tình nguyện ý nghĩa của HTi's Volunteer Club.",
-    avatar: "/images/bcn/cn3.jpg",
+    avatar: "/images/bcn/cn4.jpg",
     generation: "Ban Chủ Nhiệm HTi's Volunteer Club"
   }
 ];

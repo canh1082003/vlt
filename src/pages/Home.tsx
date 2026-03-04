@@ -160,30 +160,36 @@ export default function Home() {
           </div>
           <div className="events-preview__grid">
             {upcomingEvents.map((ev, i) => (
-              <motion.div
-                key={ev.id}
-                className="event-preview-card card"
-                initial={{ opacity: 0, y: 30 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true }}
-                transition={{ delay: i * 0.1, duration: 0.5 }}
-              >
-                <div className="event-preview-card__img">
-                  <img src={ev.image} alt={ev.title} />
-                  <span className={`event-preview-card__badge event-preview-card__badge--${ev.category}`}>
-                    {ev.category === 'charity' ? 'Từ thiện' : ev.category === 'education' ? 'Giáo dục' : ev.category === 'community' ? 'Cộng đồng' : 'Môi trường'}
-                  </span>
-                </div>
-                <div className="event-preview-card__body">
-                  <p className="event-preview-card__date">
-                    <Calendar size={14} />
-                    {ev.date} • {ev.location}
-                  </p>
-                  <h3 className="event-preview-card__title">{ev.title}</h3>
-                  <p className="event-preview-card__desc">{ev.description.slice(0, 120)}...</p>
-                </div>
-              </motion.div>
+              <Link to={`/events/${ev.id}`} key={ev.id} style={{ textDecoration: 'none', color: 'inherit' }}>
+                <motion.div
+                  className="event-preview-card card"
+                  initial={{ opacity: 0, y: 30 }}
+                  whileInView={{ opacity: 1, y: 0 }}
+                  viewport={{ once: true }}
+                  transition={{ delay: i * 0.1, duration: 0.5 }}
+                  whileHover={{ y: -4, transition: { duration: 0.2 } }}
+                >
+                  <div className="event-preview-card__img">
+                    <img src={ev.image} alt={ev.title} />
+                    <span className={`event-preview-card__badge event-preview-card__badge--${ev.category}`}>
+                      {ev.category === 'charity' ? 'Từ thiện' : ev.category === 'education' ? 'Giáo dục' : ev.category === 'community' ? 'Cộng đồng' : 'Môi trường'}
+                    </span>
+                  </div>
+                  <div className="event-preview-card__body">
+                    <p className="event-preview-card__date">
+                      <Calendar size={14} />
+                      {ev.date} • {ev.location}
+                    </p>
+                    <h3 className="event-preview-card__title">{ev.title}</h3>
+                    <p className="event-preview-card__desc">{ev.description.slice(0, 120)}...</p>
+                    <span style={{ display: 'inline-flex', alignItems: 'center', gap: 4, fontSize: '0.8rem', fontWeight: 600, color: 'var(--gold-dark)', marginTop: 8 }}>
+                      Xem chi tiết <ArrowRight size={13} />
+                    </span>
+                  </div>
+                </motion.div>
+              </Link>
             ))}
+
           </div>
           <div style={{ textAlign: 'center', marginTop: '40px' }}>
             <Link to="/events" className="btn-primary" style={{ display: 'inline-flex' }}>

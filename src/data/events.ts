@@ -13,6 +13,7 @@ export interface Event {
   category: 'charity' | 'education' | 'community' | 'environment';
   image: string;
   giftImage?: string;
+  videoUrl?: string;
   participants?: number;
   status: 'upcoming' | 'completed';
   highlights?: string[];

@@ -1,7 +1,7 @@
 import { useEffect } from 'react';
 import { useParams, Link, useNavigate } from 'react-router-dom';
 import { motion } from 'framer-motion';
-import { Calendar, MapPin, Users, CheckCircle, ArrowLeft, Facebook, Clock, CreditCard, Phone, Mail, Gift, Megaphone } from 'lucide-react';
+import { Calendar, MapPin, Users, CheckCircle, ArrowLeft, Facebook, Clock, CreditCard, Phone, Mail, Gift, Megaphone, Video } from 'lucide-react';
 import { events } from '../data/events';
 import './EventDetail.css';
 
@@ -11,6 +11,16 @@ const categoryLabel: Record<string, string> = {
   community: 'Cộng đồng',
   environment: 'Môi trường',
 };
+
+function getEmbedUrl(url: string): string {
+  // YouTube: watch?v=ID or youtu.be/ID => embed/ID
+  const ytMatch = url.match(/(?:youtube\.com\/watch\?v=|youtu\.be\/|youtube\.com\/embed\/)([\w-]+)/);
+  if (ytMatch) return `https://www.youtube.com/embed/${ytMatch[1]}?rel=0`;
+  // Facebook video URL => use FB embedded player
+  const fbMatch = url.match(/facebook\.com\/.+\/videos\/([\d]+)/);
+  if (fbMatch) return `https://www.facebook.com/plugins/video.php?href=${encodeURIComponent(url)}&show_text=0&width=560`;
+  return url;
+}
 
 export default function EventDetail() {
   const { id } = useParams<{ id: string }>();
@@ -69,6 +79,21 @@ export default function EventDetail() {
               <h2>Về chương trình</h2>
               <p>{event.description}</p>
             </section>
+
+            {/* Video */}
+            {event.videoUrl && (
+              <section className="event-detail__section event-detail__video-section">
+                <h2><span className="section-icon"><Video size={18}/></span> Video chương trình</h2>
+                <div className="event-detail__video-wrap">
+                  <iframe
+                    src={getEmbedUrl(event.videoUrl)}
+                    title={event.title}
+                    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                    allowFullScreen
+                  />
+                </div>
+              </section>
+            )}
 
             {/* Activities */}
             {event.activities && (
